@@ -4,9 +4,10 @@ const User = require('../models/user')
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const config = require('../config/database')
+const baseURL = 'http://localhost:3000'
 
 // Register User
-router.post('/register', (req, res, next) => {
+router.post('http://localhost:3000/register', (req, res, next) => {
     let newUser = new User({
         name: req.body.name,
         email: req.body.email,
@@ -23,7 +24,8 @@ router.post('/register', (req, res, next) => {
 });
 
 // Authenticate
-router.post('/authenticate', (req, res, next) => {
+router.post('http://localhost:3000/authenticate', (req, res, next) => {
+    
     const email = req.body.email
     const password = req.body.password
 
